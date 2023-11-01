@@ -14,7 +14,7 @@ const rootReducer = (state = initialState, action) => {
             transactions: [...state.transactions, action.payload],
             balance: {
               ...state.balance,
-              amount: state.balance.amount - action.payload.amount,
+              amount: state.balance.amount - Number(action.payload.amount),
             },
           }
         : action.payload.type === "income"
@@ -23,7 +23,7 @@ const rootReducer = (state = initialState, action) => {
             transactions: [...state.transactions, action.payload],
             balance: {
               ...state.balance,
-              amount: state.balance.amount + action.payload.amount,
+              amount: state.balance.amount + Number(action.payload.amount),
             },
           }
         : state;
@@ -31,7 +31,7 @@ const rootReducer = (state = initialState, action) => {
       return action.payload.type === "expense"
         ? {
             ...state,
-            transations: [
+            transactions: [
               ...state.transactions.filter((t) => t.id !== action.payload.id),
             ],
             balance: {
@@ -42,7 +42,7 @@ const rootReducer = (state = initialState, action) => {
         : action.payload.type === "income"
         ? {
             ...state,
-            transations: [
+            transactions: [
               ...state.transactions.filter((t) => t.id !== action.payload.id),
             ],
             balance: {

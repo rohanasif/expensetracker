@@ -20,7 +20,6 @@ export const transact = (transaction) => {
 };
 
 export const deleteTransact = (transaction) => {
-  console.log(transaction);
   return {
     type: DELETE_TRANSACT,
     payload: transaction,

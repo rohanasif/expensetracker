@@ -5,8 +5,8 @@ import { deleteTransact } from "../actions";
 
 const Transaction = ({ transaction }) => {
   const dispatch = useDispatch();
-  const handleDelete = () => {
-    dispatch(deleteTransact({ transaction }));
+  const handleDelete = (t) => {
+    dispatch(deleteTransact({ t }));
   };
   return (
     <div className="flex justify-between items-center">
@@ -27,7 +27,7 @@ const Transaction = ({ transaction }) => {
           </span>
         </div>
       </div>
-      <DeleteIcon onClick={() => handleDelete()} />
+      <DeleteIcon onClick={() => handleDelete(transaction)} />
     </div>
   );
 };
