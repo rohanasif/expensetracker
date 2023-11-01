@@ -1,10 +1,18 @@
 import {
+  GET_EXPENSES,
   ADD_EXPENSE,
   ADD_INCOME,
+  GET_INCOMES,
   REMOVE_EXPENSE,
   REMOVE_INCOME,
   UPDATE_BALANCE,
 } from "../constants";
+
+export const getExpenses = () => {
+  return {
+    type: GET_EXPENSES,
+  };
+};
 
 export const addExpense = () => {
   return {
@@ -15,6 +23,12 @@ export const addExpense = () => {
 export const removeExpense = () => {
   return {
     type: REMOVE_EXPENSE,
+  };
+};
+
+export const getIncomes = () => {
+  return {
+    type: GET_INCOMES,
   };
 };
 
