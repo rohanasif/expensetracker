@@ -9,8 +9,8 @@ const Transaction = ({ transaction }) => {
     dispatch(deleteTransact({ transaction }));
   };
   return (
-    <div className="flex justify-between">
-      <div className="flex">
+    <div className="flex justify-between items-center">
+      <div className="flex items-center">
         <MonetizationOnIcon
           sx={
             transaction.type === "expense"
@@ -23,7 +23,7 @@ const Transaction = ({ transaction }) => {
         <div className="flex flex-col">
           <p>{transaction.category}</p>
           <span>
-            {transaction.amount} - {transaction.datetime}
+            {transaction.amount} - {transaction.datetime.toString()}
           </span>
         </div>
       </div>

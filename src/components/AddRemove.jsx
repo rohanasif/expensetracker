@@ -66,7 +66,10 @@ const AddRemove = () => {
             id="type"
             value={type}
             label="Type"
-            onChange={(e) => setType(e.target.value)}
+            onChange={(e) => {
+              setType(e.target.value);
+              setCategory("");
+            }}
           >
             <MenuItem value="income">Income</MenuItem>
             <MenuItem value="expense">Expense</MenuItem>

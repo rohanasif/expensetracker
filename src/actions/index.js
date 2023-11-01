@@ -1,13 +1,26 @@
 import { TRANSACT, DELETE_TRANSACT } from "../constants";
 
 export const transact = (transaction) => {
-  return {
-    type: TRANSACT,
-    payload: transaction,
-  };
+  if (
+    transaction.type &&
+    transaction.category &&
+    transaction.amount >= 0 &&
+    transaction.datetime
+  ) {
+    return {
+      type: TRANSACT,
+      payload: transaction,
+    };
+  } else {
+    return {
+      type: null,
+      payload: null,
+    };
+  }
 };
 
 export const deleteTransact = (transaction) => {
+  console.log(transaction);
   return {
     type: DELETE_TRANSACT,
     payload: transaction,
