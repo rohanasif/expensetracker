@@ -6,7 +6,7 @@ import { deleteTransact } from "../actions";
 const Transaction = ({ transaction }) => {
   const dispatch = useDispatch();
   const handleDelete = (t) => {
-    dispatch(deleteTransact({ t }));
+    dispatch(deleteTransact(t));
   };
   return (
     <div className="flex justify-between items-center">

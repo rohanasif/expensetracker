@@ -31,23 +31,21 @@ const rootReducer = (state = initialState, action) => {
       return action.payload.type === "expense"
         ? {
             ...state,
-            transactions: [
-              ...state.transactions.filter((t) => t.id !== action.payload.id),
-            ],
+            transactions: state.transactions.filter(
+              (t) => t.id !== action.payload.id
+            ),
             balance: {
-              ...state.balance,
-              amount: state.balance.amount + action.payload.amount,
+              amount: state.balance.amount + Number(action.payload.amount),
             },
           }
         : action.payload.type === "income"
         ? {
             ...state,
-            transactions: [
-              ...state.transactions.filter((t) => t.id !== action.payload.id),
-            ],
+            transactions: state.transactions.filter(
+              (t) => t.id !== action.payload.id
+            ),
             balance: {
-              ...state.balance,
-              amount: state.balance.amount - action.payload.amount,
+              amount: state.balance.amount - Number(action.payload.amount),
             },
           }
         : state;
