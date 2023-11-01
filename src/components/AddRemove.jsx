@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   FormControl,
   InputLabel,
@@ -11,8 +11,10 @@ import { useState } from "react";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateTimePicker } from "@mui/x-date-pickers";
 import { LocalizationProvider } from "@mui/x-date-pickers";
+import { v4 as uuidv4 } from "uuid";
+import { transact } from "../actions";
 
-const Add = () => {
+const AddRemove = () => {
   const balance = useSelector((state) => state.balance.amount);
   const [type, setType] = useState("income");
   const [category, setCategory] = useState("");
@@ -42,10 +44,11 @@ const Add = () => {
     "Savings",
     "Rental Income",
   ];
+  const dispatch = useDispatch();
+
   const handleCreate = () => {
-    if (type === "income") {
-    } else if (type === "expense") {
-    } else return;
+    const id = uuidv4();
+    dispatch(transact());
   };
 
   return (
@@ -122,4 +125,4 @@ const Add = () => {
     </div>
   );
 };
-export default Add;
+export default AddRemove;

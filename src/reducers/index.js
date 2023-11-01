@@ -1,10 +1,4 @@
-import {
-  ADD_EXPENSE,
-  ADD_INCOME,
-  REMOVE_EXPENSE,
-  REMOVE_INCOME,
-  UPDATE_BALANCE,
-} from "../constants";
+import { TRANSACT, DELETE_TRANSACT } from "../constants";
 
 const initialState = {
   transactions: [],
@@ -13,16 +7,50 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_EXPENSE:
-      return;
-    case REMOVE_EXPENSE:
-      return;
-    case ADD_INCOME:
-      return;
-    case REMOVE_INCOME:
-      return;
-    case UPDATE_BALANCE:
-      return;
+    case TRANSACT:
+      return action.payload.type === "expense"
+        ? {
+            ...state,
+            transactions: [...state.transactions, action.payload],
+            balance: {
+              ...state.balance,
+              amount: state.balance.amount - action.payload.amount,
+            },
+          }
+        : action.payload.type === "income"
+        ? {
+            ...state,
+            transactions: [...state.transactions, action.payload],
+            balance: {
+              ...state.balance,
+              amount: state.balance.amount + action.payload.amount,
+            },
+          }
+        : state;
+    case DELETE_TRANSACT:
+      return action.payload.type === "expense"
+        ? {
+            ...state,
+            transations: [
+              ...state.transactions.filter((t) => t.id !== action.payload.id),
+            ],
+            balance: {
+              ...state.balance,
+              amount: state.balance.amount + action.payload.amount,
+            },
+          }
+        : action.payload.type === "income"
+        ? {
+            ...state,
+            transations: [
+              ...state.transactions.filter((t) => t.id !== action.payload.id),
+            ],
+            balance: {
+              ...state.balance,
+              amount: state.balance.amount - action.payload.amount,
+            },
+          }
+        : state;
     default:
       return state;
   }

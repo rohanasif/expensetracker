@@ -1,37 +1,13 @@
-import {
-  ADD_EXPENSE,
-  ADD_INCOME,
-  REMOVE_EXPENSE,
-  REMOVE_INCOME,
-  UPDATE_BALANCE,
-} from "../constants";
+import { TRANSACT, DELETE_TRANSACT } from "../constants";
 
-export const addExpense = () => {
+export const transact = () => {
   return {
-    type: ADD_EXPENSE,
+    type: TRANSACT,
   };
 };
 
-export const removeExpense = () => {
+export const deleteTransact = () => {
   return {
-    type: REMOVE_EXPENSE,
-  };
-};
-
-export const addIncome = () => {
-  return {
-    type: ADD_INCOME,
-  };
-};
-
-export const removeIncome = () => {
-  return {
-    type: REMOVE_INCOME,
-  };
-};
-
-export const updateBalance = () => {
-  return {
-    type: UPDATE_BALANCE,
+    type: DELETE_TRANSACT,
   };
 };

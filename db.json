@@ -1,7 +1,7 @@
 {
   "transactions": [
-    { "type": "expense", "category": "travel", "amount": 200 },
-    { "type": "income", "category": "salary", "amount": 200 }
+    { "type": "expense", "category": "travel", "amount": 200, "timestamp": "" },
+    { "type": "income", "category": "salary", "amount": 200, "timestamp": "" }
   ],
   "balance": { "amount": 0 }
 }

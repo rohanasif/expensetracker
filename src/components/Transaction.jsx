@@ -1,14 +1,33 @@
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { deleteTransact } from "../actions";
 
-const Transaction = () => {
+const Transaction = ({ transaction }) => {
+  const dispatch = useDispatch();
+  const handleDelete = () => {
+    dispatch(deleteTransact());
+  };
   return (
-    <div className="flex">
-      <MonetizationOnIcon />
-      <div className="flex flex-col">
-        <p>{finance.type}</p>
+    <div className="flex justify-between">
+      <div className="flex">
+        <MonetizationOnIcon
+          sx={
+            transaction.type === "expense"
+              ? { color: "red" }
+              : transaction.type === "income"
+              ? { color: "green" }
+              : null
+          }
+        />
+        <div className="flex flex-col">
+          <p>{transaction.category}</p>
+          <span>
+            {transaction.amount} - {transaction.timestamp}
+          </span>
+        </div>
       </div>
+      <DeleteIcon onClick={() => handleDelete()} />
     </div>
   );
 };

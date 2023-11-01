@@ -1,7 +1,2 @@
-export const GET_EXPENSES = "GET_EXPENSES";
-export const ADD_EXPENSE = "ADD_EXPENSE";
-export const REMOVE_EXPENSE = "REMOVE_EXPENSE";
-export const GET_INCOMES = "GET_INCOMES";
-export const ADD_INCOME = "ADD_INCOME";
-export const REMOVE_INCOME = "REMOVE_INCOME";
-export const UPDATE_BALANCE = "UPDATE_BALANCE";
+export const TRANSACT = "TRANSACT";
+export const DELETE_TRANSACT = "DELETE_TRANSACT";
