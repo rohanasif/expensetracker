@@ -7,9 +7,8 @@ import {
 } from "../constants";
 
 const initialState = {
-  expenses: [],
-  incomes: [],
-  balance: { quantity: 0 },
+  transactions: [],
+  balance: { amount: 0 },
 };
 
 const rootReducer = (state = initialState, action) => {

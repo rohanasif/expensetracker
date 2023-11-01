@@ -11,10 +11,9 @@ import { useState } from "react";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateTimePicker } from "@mui/x-date-pickers";
 import { LocalizationProvider } from "@mui/x-date-pickers";
-import FinanceItem from "./FinanceItem";
 
 const Add = () => {
-  const balance = useSelector((state) => state.balance.quantity);
+  const balance = useSelector((state) => state.balance.amount);
   const [type, setType] = useState("income");
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");

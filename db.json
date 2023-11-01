@@ -1,5 +1,7 @@
 {
-  "expenses": [],
-  "incomes": [],
-  "balance": { "quantity": 0 }
+  "transactions": [
+    { "type": "expense", "category": "travel", "amount": 200 },
+    { "type": "income", "category": "salary", "amount": 200 }
+  ],
+  "balance": { "amount": 0 }
 }
