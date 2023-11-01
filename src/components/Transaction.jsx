@@ -6,7 +6,7 @@ import { deleteTransact } from "../actions";
 const Transaction = ({ transaction }) => {
   const dispatch = useDispatch();
   const handleDelete = () => {
-    dispatch(deleteTransact());
+    dispatch(deleteTransact({ transaction }));
   };
   return (
     <div className="flex justify-between">
@@ -23,7 +23,7 @@ const Transaction = ({ transaction }) => {
         <div className="flex flex-col">
           <p>{transaction.category}</p>
           <span>
-            {transaction.amount} - {transaction.timestamp}
+            {transaction.amount} - {transaction.datetime}
           </span>
         </div>
       </div>

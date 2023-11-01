@@ -13,6 +13,7 @@ import { DateTimePicker } from "@mui/x-date-pickers";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { v4 as uuidv4 } from "uuid";
 import { transact } from "../actions";
+import Transactions from "./Transactions";
 
 const AddRemove = () => {
   const balance = useSelector((state) => state.balance.amount);
@@ -48,7 +49,7 @@ const AddRemove = () => {
 
   const handleCreate = () => {
     const id = uuidv4();
-    dispatch(transact());
+    dispatch(transact({ id, type, category, amount, datetime }));
   };
 
   return (
@@ -122,6 +123,7 @@ const AddRemove = () => {
       <Button variant="outlined" fullWidth onClick={() => handleCreate()}>
         Create
       </Button>
+      <Transactions />
     </div>
   );
 };

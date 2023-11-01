@@ -6,13 +6,14 @@ const Expenses = () => {
     <div className="bg-white flex flex-col items-center rounded-md p-4 min-h-[200px] ">
       <h1>Expenses</h1>
       <p>
-        Rs. {expenses.reduce((total, expense) => total + expense.amount, 0)}
+        Rs.{" "}
+        {expenses.reduce((total, expense) => total + Number(expense.amount), 0)}
       </p>
       {expenses.map((expense, i) => {
         return (
           <div className="flex justify-around" key={i}>
             <p>
-              {expense.type}: Rs. {expense.amount}
+              {expense.category}: Rs. {expense.amount}
             </p>
           </div>
         );

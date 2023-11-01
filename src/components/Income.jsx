@@ -9,13 +9,14 @@ const Income = () => {
       <h1>Income</h1>
       <div>
         <p>
-          Rs. {incomes?.reduce((total, income) => total + income.amount, 0)}
+          Rs.{" "}
+          {incomes?.reduce((total, income) => total + Number(income.amount), 0)}
         </p>
         {incomes.map((income, i) => {
           return (
             <div className="flex justify-around" key={i}>
               <p>
-                {income.type}: Rs. {income.amount}
+                {income.category}: Rs. {income.amount}
               </p>
             </div>
           );
